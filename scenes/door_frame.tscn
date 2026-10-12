@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://cweb0kxorwa8q"]
+
+[ext_resource type="Texture2D" uid="uid://d0moqscbuksmx" path="res://scenes/ui/frame.png" id="1_gnixj"]
+[ext_resource type="Script" uid="uid://c5d51ifbk7jrm" path="res://scenes/door_frame.gd" id="2_oe340"]
+[ext_resource type="Texture2D" uid="uid://0shtx2igvby5" path="res://scenes/ui/door.png" id="2_yxivk"]
+[ext_resource type="Texture2D" uid="uid://slenly2d737v" path="res://scenes/ui/door_progress_frame.png" id="3_oe340"]
+[ext_resource type="Texture2D" uid="uid://obqjyw65m664" path="res://scenes/ui/door_progress_bar.png" id="4_s5jdt"]
+
+[node name="DoorFrame" type="TextureRect" unique_id=1208343332]
+size_flags_horizontal = 3
+texture = ExtResource("1_gnixj")
+script = ExtResource("2_oe340")
+
+[node name="DoorHBox" type="HBoxContainer" parent="." unique_id=1920304673]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="DoorHBox" unique_id=1458952509]
+layout_mode = 2
+texture = ExtResource("2_yxivk")
+expand_mode = 3
+
+[node name="Spacer" type="Control" parent="DoorHBox" unique_id=1472954378]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DoorHBox" unique_id=1363111790]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DoorLabel" type="Label" parent="DoorHBox/VBoxContainer" unique_id=904081694]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+text = "LEFT DOOR"
+horizontal_alignment = 1
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="DoorHBox/VBoxContainer" unique_id=536812646]
+layout_mode = 2
+size_flags_vertical = 3
+ratio = 5.0
+stretch_mode = 0
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="DoorHBox/VBoxContainer/AspectRatioContainer" unique_id=1491051463]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 1.0
+step = 0.01
+value = 1.0
+nine_patch_stretch = true
+texture_over = ExtResource("3_oe340")
+texture_progress = ExtResource("4_s5jdt")
+
+[node name="DoorHealthLabel" type="Label" parent="DoorHBox/VBoxContainer" unique_id=848351656]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+text = "10/10"
+horizontal_alignment = 1

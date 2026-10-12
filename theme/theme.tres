@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://xtyut3bndmu4"]
+
+[ext_resource type="FontFile" uid="uid://ckjc356psx3mv" path="res://theme/quaver.ttf" id="1_8ab6e"]
+
+[resource]
+default_font = ExtResource("1_8ab6e")

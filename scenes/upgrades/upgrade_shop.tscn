@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dmw0mlfr5340c"]
+
+[ext_resource type="PackedScene" path="res://scenes/upgrades/upgrade_pedestal.tscn" id="1_pedestal"]
+
+[node name="UpgradeShop" type="Node2D" unique_id=1920097495]
+
+[node name="Dash" parent="." unique_id=1119324588 instance=ExtResource("1_pedestal")]
+position = Vector2(-125, 0)
+
+[node name="Saw" parent="." unique_id=759241058 instance=ExtResource("1_pedestal")]
+position = Vector2(-75, 0)
+upgrade = 1
+
+[node name="Rapid" parent="." unique_id=1059939926 instance=ExtResource("1_pedestal")]
+position = Vector2(-25, 0)
+upgrade = 2
+
+[node name="Blast" parent="." unique_id=526402882 instance=ExtResource("1_pedestal")]
+position = Vector2(25, 0)
+upgrade = 3
+
+[node name="Door" parent="." unique_id=1359097907 instance=ExtResource("1_pedestal")]
+position = Vector2(75, 0)
+upgrade = 4
+
+[node name="Grow" parent="." unique_id=1715698937 instance=ExtResource("1_pedestal")]
+position = Vector2(125, 0)
+upgrade = 5

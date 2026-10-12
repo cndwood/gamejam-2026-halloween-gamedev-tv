@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://yuqg2qs1pnnt"]
+
+[ext_resource type="Texture2D" uid="uid://cmupdajkx0d7h" path="res://scenes/planks_machine/planks_machine.png" id="1_mjoq1"]
+[ext_resource type="Script" uid="uid://clpafxcorkeig" path="res://scenes/planks_machine/planks_machine.gd" id="1_n40fc"]
+[ext_resource type="PackedScene" uid="uid://bqdgxdpw3s4r3" path="res://scenes/components/interact_trigger.tscn" id="2_f7ty5"]
+[ext_resource type="Texture2D" uid="uid://cuqgnwu0ldka0" path="res://scenes/deco/workbench.png" id="3_4n185"]
+[ext_resource type="Texture2D" uid="uid://ue1vvc0ivp8x" path="res://scenes/pumpkin_machine/pumpkin_machine_progress_frame.png" id="4_fuv58"]
+[ext_resource type="Texture2D" uid="uid://chn5m712jqaxe" path="res://scenes/pumpkin_machine/pumpkin_machine_progress_bar.png" id="5_4n185"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50upp"]
+size = Vector2(29, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jwnag"]
+size = Vector2(27.5, 42.5)
+
+[node name="PlanksMachine" type="Node2D" unique_id=59880798]
+script = ExtResource("1_n40fc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1155277957]
+texture = ExtResource("1_mjoq1")
+
+[node name="Workbench" type="Sprite2D" parent="." unique_id=1007286640]
+position = Vector2(-33, 5)
+texture = ExtResource("3_4n185")
+
+[node name="PlanksInteract" parent="." unique_id=169101475 instance=ExtResource("2_f7ty5")]
+position = Vector2(-33, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlanksInteract" unique_id=619293743]
+position = Vector2(0.5, 12.5)
+shape = SubResource("RectangleShape2D_50upp")
+debug_color = Color(0.873705, 0.20659822, 0.69244283, 0.41960785)
+
+[node name="CrystalsInteract" parent="." unique_id=2097516158 instance=ExtResource("2_f7ty5")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CrystalsInteract" unique_id=1571494413]
+position = Vector2(0.25, 0.25)
+shape = SubResource("RectangleShape2D_jwnag")
+debug_color = Color(0.873705, 0.20659822, 0.69244283, 0.41960785)
+
+[node name="Timer" type="Timer" parent="." unique_id=270907499]
+
+[node name="PlanksProgress" type="TextureProgressBar" parent="." unique_id=1205079188]
+offset_left = -47.0
+offset_top = -19.0
+offset_right = -7.0
+offset_bottom = 21.0
+max_value = 1.0
+step = 0.01
+texture_over = ExtResource("4_fuv58")
+texture_progress = ExtResource("5_4n185")
+
+[node name="CrystalProgress" type="TextureProgressBar" parent="." unique_id=163542122]
+offset_left = -14.0
+offset_top = -28.0
+offset_right = 26.0
+offset_bottom = 12.0
+max_value = 1.0
+step = 0.01
+texture_over = ExtResource("4_fuv58")
+texture_progress = ExtResource("5_4n185")

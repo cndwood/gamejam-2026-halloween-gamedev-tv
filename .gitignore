@@ -1,0 +1,17 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Local build outputs and OS metadata
+/build/
+.DS_Store
+Thumbs.db
+*.tmp
+
+# Local tooling caches and private export settings
+__pycache__/
+*.py[cod]
+export_credentials.cfg
+.env
+.env.*
+!.env.example

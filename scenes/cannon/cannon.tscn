@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://dm5mdnjntba2w"]
+
+[ext_resource type="Texture2D" uid="uid://cd0mrndbxpggh" path="res://scenes/cannon/cannon.png" id="1_4r05k"]
+[ext_resource type="Script" uid="uid://bded5d41t314v" path="res://scenes/cannon/cannon.gd" id="1_xgg2g"]
+[ext_resource type="PackedScene" uid="uid://bejf08hpr5n12" path="res://scenes/pumpkin_explosion/pumpkin_projectile.tscn" id="2_p7cvk"]
+[ext_resource type="Texture2D" uid="uid://by6yl0x66xsb5" path="res://scenes/deco/pumpkin_refilll.png" id="4_s14hi"]
+[ext_resource type="PackedScene" uid="uid://bqdgxdpw3s4r3" path="res://scenes/components/interact_trigger.tscn" id="5_lb0lo"]
+[ext_resource type="Texture2D" uid="uid://ue1vvc0ivp8x" path="res://scenes/pumpkin_machine/pumpkin_machine_progress_frame.png" id="6_styri"]
+[ext_resource type="Texture2D" uid="uid://chn5m712jqaxe" path="res://scenes/pumpkin_machine/pumpkin_machine_progress_bar.png" id="7_txplb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3t6x"]
+size = Vector2(16, 16)
+
+[node name="Cannon" type="Node2D" unique_id=1697849527]
+script = ExtResource("1_xgg2g")
+pumpkin_scene = ExtResource("2_p7cvk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1691824940]
+texture = ExtResource("1_4r05k")
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=723928147]
+unique_name_in_owner = true
+position = Vector2(-8, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1663266453]
+position = Vector2(20, 3)
+texture = ExtResource("4_s14hi")
+
+[node name="RefillPoint" type="Marker2D" parent="."]
+position = Vector2(20, -3)
+
+[node name="InteractTrigger" parent="." unique_id=169101475 instance=ExtResource("5_lb0lo")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractTrigger" unique_id=1455330849]
+position = Vector2(20, 3)
+shape = SubResource("RectangleShape2D_c3t6x")
+
+[node name="Progress" type="TextureProgressBar" parent="." unique_id=1364180044]
+offset_left = 5.0
+offset_top = -12.0
+offset_right = 45.0
+offset_bottom = 28.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+texture_over = ExtResource("6_styri")
+texture_progress = ExtResource("7_txplb")

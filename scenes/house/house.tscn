@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://c8etmhulqio6e"]
+
+[ext_resource type="Texture2D" uid="uid://by487n8uv7l7n" path="res://scenes/house/house.png" id="1_26bk5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_26bk5"]
+size = Vector2(284, 5.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_amugp"]
+size = Vector2(31, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jwnag"]
+size = Vector2(5, 64.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7y4bu"]
+size = Vector2(6, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xw7vy"]
+size = Vector2(278, 6)
+
+[node name="House" type="StaticBody2D" unique_id=1366784716]
+collision_layer = 128
+collision_mask = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=192643804]
+texture = ExtResource("1_26bk5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=861008677]
+visible = false
+position = Vector2(0, 70.25)
+shape = SubResource("RectangleShape2D_26bk5")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="." unique_id=1847842730]
+visible = false
+position = Vector2(-126.5, 12)
+shape = SubResource("RectangleShape2D_amugp")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="." unique_id=71416764]
+visible = false
+position = Vector2(126.5, 12)
+shape = SubResource("RectangleShape2D_amugp")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=1904006528]
+visible = false
+position = Vector2(-144.5, 40.75)
+shape = SubResource("RectangleShape2D_jwnag")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=1894132553]
+visible = false
+position = Vector2(144.5, 40.75)
+shape = SubResource("RectangleShape2D_jwnag")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="." unique_id=58819427]
+visible = false
+position = Vector2(-136, -7.5)
+shape = SubResource("RectangleShape2D_7y4bu")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="." unique_id=2090788436]
+visible = false
+position = Vector2(136, -7.5)
+shape = SubResource("RectangleShape2D_7y4bu")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="." unique_id=1793050469]
+visible = false
+position = Vector2(0, -26.5)
+shape = SubResource("RectangleShape2D_xw7vy")

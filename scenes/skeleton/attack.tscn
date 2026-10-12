@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://7eofmfjxxnck"]
+
+[ext_resource type="Script" uid="uid://c1bbivbk42ey4" path="res://scenes/skeleton/attack.gd" id="1_rujmf"]
+
+[node name="Attack" type="Area2D" unique_id=856857278]
+collision_layer = 2
+collision_mask = 32
+script = ExtResource("1_rujmf")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

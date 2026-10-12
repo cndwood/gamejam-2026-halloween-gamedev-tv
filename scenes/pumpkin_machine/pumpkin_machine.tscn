@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://dgc1iphugclhc"]
+
+[ext_resource type="Texture2D" uid="uid://ci1v1rra7tpgm" path="res://scenes/pumpkin_machine/pumpkin_machine.png" id="1_8txbv"]
+[ext_resource type="Script" uid="uid://g0w0w47816av" path="res://scenes/pumpkin_machine/pumpkin_machine.gd" id="1_qdkfn"]
+[ext_resource type="Texture2D" uid="uid://ue1vvc0ivp8x" path="res://scenes/pumpkin_machine/pumpkin_machine_progress_frame.png" id="3_yrkes"]
+[ext_resource type="Texture2D" uid="uid://chn5m712jqaxe" path="res://scenes/pumpkin_machine/pumpkin_machine_progress_bar.png" id="4_yicfl"]
+[ext_resource type="PackedScene" uid="uid://bqdgxdpw3s4r3" path="res://scenes/components/interact_trigger.tscn" id="5_yicfl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3t6x"]
+size = Vector2(48, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_agct1"]
+size = Vector2(22, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jwnag"]
+size = Vector2(49, 3)
+
+[node name="PumpkinMachine" type="StaticBody2D" unique_id=172447757]
+collision_layer = 16
+script = ExtResource("1_qdkfn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=272826208]
+texture = ExtResource("1_8txbv")
+
+[node name="PumpkinProgress" type="TextureProgressBar" parent="." unique_id=2132602894]
+offset_left = -15.0
+offset_top = -4.0
+offset_right = 25.0
+offset_bottom = 36.0
+max_value = 1.0
+step = 0.01
+texture_over = ExtResource("3_yrkes")
+texture_progress = ExtResource("4_yicfl")
+
+[node name="CrystalProgress" type="TextureProgressBar" parent="." unique_id=1161346637]
+offset_left = -14.0
+offset_top = -40.0
+offset_right = 26.0
+max_value = 1.0
+step = 0.01
+texture_over = ExtResource("3_yrkes")
+texture_progress = ExtResource("4_yicfl")
+
+[node name="Timer" type="Timer" parent="." unique_id=686232601]
+one_shot = true
+
+[node name="PumpkinInteract" parent="." unique_id=169101475 instance=ExtResource("5_yicfl")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PumpkinInteract" unique_id=1921659264]
+position = Vector2(0, 14)
+shape = SubResource("RectangleShape2D_c3t6x")
+
+[node name="CrystalInteract" parent="." unique_id=72469061 instance=ExtResource("5_yicfl")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CrystalInteract" unique_id=1354128217]
+position = Vector2(0.5, -20.5)
+shape = SubResource("RectangleShape2D_agct1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=368287319]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_jwnag")
+one_way_collision = true

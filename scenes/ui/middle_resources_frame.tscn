@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://cd8sgwag5kwg2"]
+
+[ext_resource type="Texture2D" uid="uid://d0moqscbuksmx" path="res://scenes/ui/frame.png" id="1_mhqrr"]
+[ext_resource type="Texture2D" uid="uid://b160slsl6h4fu" path="res://scenes/ui/pumpkin.png" id="2_hh1fh"]
+[ext_resource type="Script" uid="uid://ckrpw7u45v8f6" path="res://scenes/ui/middle_resources_frame.gd" id="2_v0023"]
+[ext_resource type="Texture2D" uid="uid://rwnwf2rg4k7q" path="res://scenes/ui/plank.png" id="3_v0023"]
+[ext_resource type="Texture2D" uid="uid://qaxpkaimllo5" path="res://scenes/ui/gems.png" id="4_y2187"]
+
+[node name="MiddleResourcesFrame" type="TextureRect" unique_id=1039676686]
+size_flags_horizontal = 3
+texture = ExtResource("1_mhqrr")
+script = ExtResource("2_v0023")
+
+[node name="MiddleResourcesHBox" type="HBoxContainer" parent="." unique_id=753012785]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07
+anchor_top = 0.1
+anchor_right = 0.93
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="PumpkinVBox" type="VBoxContainer" parent="MiddleResourcesHBox" unique_id=170133635]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MiddleResourcesHBox/PumpkinVBox" unique_id=1895133013]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="TextureRect" type="TextureRect" parent="MiddleResourcesHBox/PumpkinVBox/HBoxContainer" unique_id=937309619]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_hh1fh")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="PumpkinLabel" type="Label" parent="MiddleResourcesHBox/PumpkinVBox/HBoxContainer" unique_id=1112399593]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+text = "x00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="MiddleResourcesHBox/PumpkinVBox" unique_id=1791306132]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Pumpkins"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlankVBox" type="VBoxContainer" parent="MiddleResourcesHBox" unique_id=127893164]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MiddleResourcesHBox/PlankVBox" unique_id=947172856]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="TextureRect" type="TextureRect" parent="MiddleResourcesHBox/PlankVBox/HBoxContainer" unique_id=436216126]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_v0023")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="PlankLabel" type="Label" parent="MiddleResourcesHBox/PlankVBox/HBoxContainer" unique_id=239721153]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+text = "x00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="MiddleResourcesHBox/PlankVBox" unique_id=1694989089]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Planks"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GemsVBox" type="VBoxContainer" parent="MiddleResourcesHBox" unique_id=2018714318]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MiddleResourcesHBox/GemsVBox" unique_id=1509963448]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="TextureRect" type="TextureRect" parent="MiddleResourcesHBox/GemsVBox/HBoxContainer" unique_id=1757583750]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_y2187")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="GemsLabel" type="Label" parent="MiddleResourcesHBox/GemsVBox/HBoxContainer" unique_id=417423849]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.7
+text = "x00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="MiddleResourcesHBox/GemsVBox" unique_id=1701468832]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Gems"
+horizontal_alignment = 1
+vertical_alignment = 1

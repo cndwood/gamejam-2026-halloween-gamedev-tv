@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://demhp38fii5t8"]
+
+[ext_resource type="Texture2D" uid="uid://cktt11psv57wq" path="res://scenes/player/player.png" id="1_8afob"]
+[ext_resource type="Script" uid="uid://da0f183rh7f1m" path="res://scenes/player/player.gd" id="1_dovo2"]
+[ext_resource type="Texture2D" uid="uid://cjqrn6m2yjbtu" path="res://scenes/crystal/crystal.png" id="3_gmlin"]
+[ext_resource type="Texture2D" uid="uid://3lp6vu8crsbv" path="res://scenes/player/small_pumpkin.png" id="4_p47bc"]
+[ext_resource type="Texture2D" uid="uid://bx6dy1n2t58ye" path="res://scenes/player/small_wood.png" id="5_75vfm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3t6x"]
+size = Vector2(12, 23)
+
+[sub_resource type="Animation" id="Animation_gmlin"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AttachmentPoint:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10.0]
+}
+
+[sub_resource type="Animation" id="Animation_p47bc"]
+resource_name = "climb"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_lvxji"]
+resource_name = "walk"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AttachmentPoint:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [10.0, 9.0, 10.0, 9.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p47bc"]
+_data = {
+&"RESET": SubResource("Animation_gmlin"),
+&"climb": SubResource("Animation_p47bc"),
+&"walk": SubResource("Animation_lvxji")
+}
+
+[node name="Player" type="CharacterBody2D" unique_id=1367622968]
+z_index = 5
+collision_mask = 208
+script = ExtResource("1_dovo2")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1506823197]
+texture = ExtResource("1_8afob")
+hframes = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=503503162]
+visible = false
+position = Vector2(1, 4.5)
+shape = SubResource("RectangleShape2D_c3t6x")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1923328054]
+position = Vector2(0, -39)
+zoom = Vector2(2.5, 2.5)
+
+[node name="AttachmentPoint" type="Marker2D" parent="." unique_id=1924444591]
+position = Vector2(7, 10)
+
+[node name="Crystal" type="Sprite2D" parent="AttachmentPoint" unique_id=532893998]
+unique_name_in_owner = true
+visible = false
+z_index = -1
+texture = ExtResource("3_gmlin")
+
+[node name="Pumpkin" type="Sprite2D" parent="AttachmentPoint" unique_id=1550144149]
+unique_name_in_owner = true
+visible = false
+z_index = -1
+texture = ExtResource("4_p47bc")
+
+[node name="Wood" type="Sprite2D" parent="AttachmentPoint" unique_id=356062738]
+unique_name_in_owner = true
+z_index = -1
+texture = ExtResource("5_75vfm")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1079528235]
+libraries/ = SubResource("AnimationLibrary_p47bc")

@@ -1,0 +1,184 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/game_menu.gd" id="1_script"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.09, 0.065, 0.12, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.85, 0.45, 0.16, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_left = 6
+corner_radius_bottom_right = 6
+
+[node name="GameMenu" type="CanvasLayer"]
+process_mode = 3
+layer = 20
+script = ExtResource("1_script")
+
+[node name="Screen" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Dim" type="ColorRect" parent="Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.02, 0.01, 0.04, 0.75)
+
+[node name="Center" type="CenterContainer" parent="Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel" type="PanelContainer" parent="Screen/Center"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Margin" type="MarginContainer" parent="Screen/Center/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Buttons" type="VBoxContainer" parent="Screen/Center/Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="Screen/Center/Panel/Margin/Buttons"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.64, 0.26, 1)
+theme_override_font_sizes/font_size = 32
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="Message" type="Label" parent="Screen/Center/Panel/Margin/Buttons"]
+layout_mode = 2
+text = "Take a breath. The house can wait."
+horizontal_alignment = 1
+
+[node name="Tutorial" type="VBoxContainer" parent="Screen/Center/Panel/Margin/Buttons"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Instructions" type="Label" parent="Screen/Center/Panel/Margin/Buttons/Tutorial"]
+custom_minimum_size = Vector2(440, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Tutorial instructions"
+autowrap_mode = 2
+
+[node name="Page" type="Label" parent="Screen/Center/Panel/Margin/Buttons/Tutorial"]
+layout_mode = 2
+text = "1 / 3"
+horizontal_alignment = 1
+
+[node name="Previous" type="Button" parent="Screen/Center/Panel/Margin/Buttons/Tutorial"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "Back"
+
+[node name="Continue" type="Button" parent="Screen/Center/Panel/Margin/Buttons/Tutorial"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Got it - start wave 1"
+
+[node name="Start" type="Button" parent="Screen/Center/Panel/Margin/Buttons"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Start"
+
+[node name="Resume" type="Button" parent="Screen/Center/Panel/Margin/Buttons"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Resume"
+
+[node name="Restart" type="Button" parent="Screen/Center/Panel/Margin/Buttons"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Restart"
+
+[node name="Options" type="Button" parent="Screen/Center/Panel/Margin/Buttons"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Options"
+
+[node name="Help" type="Button" parent="Screen/Center/Panel/Margin/Buttons"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "How to play"
+
+[node name="MainMenu" type="Button" parent="Screen/Center/Panel/Margin/Buttons"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Main Menu"
+
+[node name="Quit" type="Button" parent="Screen/Center/Panel/Margin/Buttons"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Quit"
+
+[node name="Settings" type="VBoxContainer" parent="Screen/Center/Panel/Margin/Buttons"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="MasterLabel" type="Label" parent="Screen/Center/Panel/Margin/Buttons/Settings"]
+layout_mode = 2
+text = "Master volume"
+
+[node name="Master" type="HSlider" parent="Screen/Center/Panel/Margin/Buttons/Settings"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+value = 100.0
+
+[node name="MusicLabel" type="Label" parent="Screen/Center/Panel/Margin/Buttons/Settings"]
+layout_mode = 2
+text = "Music volume"
+
+[node name="Music" type="HSlider" parent="Screen/Center/Panel/Margin/Buttons/Settings"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+value = 30.0
+
+[node name="SFXLabel" type="Label" parent="Screen/Center/Panel/Margin/Buttons/Settings"]
+layout_mode = 2
+text = "Sound effects volume"
+
+[node name="SFX" type="HSlider" parent="Screen/Center/Panel/Margin/Buttons/Settings"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+value = 15.0
+
+[node name="Mute" type="CheckButton" parent="Screen/Center/Panel/Margin/Buttons/Settings"]
+layout_mode = 2
+text = "Mute all sound"
+
+[node name="Back" type="Button" parent="Screen/Center/Panel/Margin/Buttons/Settings"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Back"
+
+[node name="Hint" type="Label" parent="Screen/Center/Panel/Margin/Buttons"]
+layout_mode = 2
+text = "Arrow keys / Tab: select    Enter: confirm"
+horizontal_alignment = 1

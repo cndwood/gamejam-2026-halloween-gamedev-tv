@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://da1edsal48c8"]
+
+[ext_resource type="Texture2D" uid="uid://c01hs7tnbaa2f" path="res://scenes/ladder/ladder.png" id="1_1hr68"]
+[ext_resource type="Script" uid="uid://c2mpl4isrgdqp" path="res://scenes/ladder/ladder.gd" id="2_script"]
+[ext_resource type="PackedScene" uid="uid://bqdgxdpw3s4r3" path="res://scenes/components/interact_trigger.tscn" id="3_interact"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_interact"]
+size = Vector2(34, 132)
+
+[node name="Ladder" type="Node2D" unique_id=1448589806]
+script = ExtResource("2_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=936429009]
+texture = ExtResource("1_1hr68")
+
+[node name="TopExit" type="Marker2D" parent="." unique_id=2027616630]
+position = Vector2(0, -44)
+
+[node name="BottomExit" type="Marker2D" parent="." unique_id=1734509522]
+position = Vector2(0, 54)
+
+[node name="InteractTrigger" parent="." unique_id=167869393 instance=ExtResource("3_interact")]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractTrigger" unique_id=155053345]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_interact")

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bejf08hpr5n12"]
+
+[ext_resource type="Script" uid="uid://bq6oobaqamgm1" path="res://scenes/pumpkin_explosion/pumpkin_projectile.gd" id="1_1gyqg"]
+[ext_resource type="Texture2D" uid="uid://c7l2rs1opw5mb" path="res://scenes/pumpkin_explosion/pumpkin_explosion.png" id="1_l6btv"]
+[ext_resource type="PackedScene" uid="uid://dkr5ervdt0c3g" path="res://scenes/pumpkin_explosion/pumpkin_explosion.tscn" id="2_crjy4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3t6x"]
+size = Vector2(19, 20)
+
+[node name="PumpkinProjectile" type="Area2D" unique_id=728515799]
+collision_mask = 64
+script = ExtResource("1_1gyqg")
+explosion_scene = ExtResource("2_crjy4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1598853124]
+texture = ExtResource("1_l6btv")
+hframes = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1602848603]
+position = Vector2(-0.5, 5)
+shape = SubResource("RectangleShape2D_c3t6x")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
